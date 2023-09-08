@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     // gather player input
     void Update()
     {
-        // Debug.Log("erm");
+
         axisX = (Input.GetKey(KRight) ? 1 : 0) - (Input.GetKey(KLeft) ? 1 : 0);
         if (axisX != 0) facing = axisX;
 
@@ -108,8 +108,6 @@ public class Player : MonoBehaviour
 
         // mininum horizontal speed to avoid tiny floats
         if (Math.Abs(vel.x) < 0.01) vel.x = 0;
-        Debug.Log(vel.x);
-
 
         // apply vel to actual velocity of rigidbody
         rb.velocity = new Vector2(vel.x, vel.y);
