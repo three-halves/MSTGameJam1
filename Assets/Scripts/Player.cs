@@ -17,8 +17,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float pSpeed;
     [SerializeField] private float jumpBufferTime;
 
+    // 0 for red, 1 for blue
+    [SerializeField] public int teamAlignment;
+
     // -1 when left, 1 when right. never 0 or any "neutral" value
-    [SerializeField] private int facing = 1;
+    private int facing = 1;
 
     private int axisX;
 
