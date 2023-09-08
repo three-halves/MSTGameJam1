@@ -104,8 +104,8 @@ MonoBehaviour:
   KRight: 100
   jumpHeight: 10
   jumpControl: 0.4
-  walkAccel: 3
-  fric: 0.9
+  walkAccel: 4
+  fric: 0.85
   pSpeed: 7
   jumpBufferTime: 0.25
   facing: 1
