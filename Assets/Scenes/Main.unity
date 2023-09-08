@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 241359458}
   - component: {fileID: 241359457}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: RightPlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.63529414, g: 0.8090418, b: 1, a: 1}
+  m_Color: {r: 0.495283, g: 0.7340739, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,8 +201,8 @@ Transform:
   m_GameObject: {fileID: 241359456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69, y: -3.77, z: 0}
-  m_LocalScale: {x: 3.2353, y: 5.3922, z: 1}
+  m_LocalPosition: {x: 3.5, y: -4, z: 0}
+  m_LocalScale: {x: 7.5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -243,7 +243,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.0018788357, g: 0.00035599942, b: 0.0754717, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 1487312800}
   - component: {fileID: 1487312799}
   m_Layer: 0
-  m_Name: Square
+  m_Name: LeftPlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.63529414, b: 0.63529414, a: 1}
+  m_Color: {r: 0.990566, g: 0.55602527, b: 0.55602527, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -377,8 +377,8 @@ Transform:
   m_GameObject: {fileID: 1487312798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.76, y: -3.61, z: 0}
-  m_LocalScale: {x: 3.2353, y: 5.3922, z: 1}
+  m_LocalPosition: {x: -3.5, y: -4, z: 0}
+  m_LocalScale: {x: 7.5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
