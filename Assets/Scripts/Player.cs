@@ -74,8 +74,7 @@ public class Player : MonoBehaviour
     // fixed update is called at a fixed interval given by simulation steps
     // process player input
     void FixedUpdate()
-    { 
-        Debug.Log(axisX);
+    {
         // Debug.Log(Time.deltaTime);
         // assign rigidbody velocity to new variable for easier modifying
         vel = rb.velocity;
@@ -101,11 +100,12 @@ public class Player : MonoBehaviour
         vel.x += (float) (walkAccel * axisX);
         if (axisX == 0) vel.x *= fric;
 
-        // soft cap horziontal speed
-        if (Math.Abs(vel.x) > pSpeed) vel.x -= walkAccel * (Math.Abs(vel.x)/vel.x);
+        // cap x speed
+        if (Math.Abs(vel.x) > pSpeed) vel.x = pSpeed * (Math.Abs(vel.x)/vel.x);
 
         // mininum horizontal speed to avoid tiny floats
         if (Math.Abs(vel.x) < 0.01) vel.x = 0;
+        Debug.Log(vel.x);
 
 
         // apply vel to actual velocity of rigidbody
