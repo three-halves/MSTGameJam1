@@ -137,14 +137,18 @@ public class Player : MonoBehaviour
         // early return if already grabbing something
         if (holding != null) return;
 
+        Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+
         holding = other;
-        other.GetComponent<Rigidbody2D>().isKinematic = true;
+        otherRb.isKinematic = true;
+        otherRb.velocity = Vector2.zero;
         Debug.Log("Grabbed " + other);
     }
 
     public void Throw(GameObject other)
     {
         Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+
         otherRb.isKinematic = false;
         otherRb.velocity = new Vector2(rb.velocity.x * 2f, rb.velocity.y * 2f + 5f);
         holding = null;
