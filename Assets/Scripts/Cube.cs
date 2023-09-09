@@ -60,6 +60,13 @@ public class Cube : MonoBehaviour
             collision.rigidbody.velocity = collision.rigidbody.velocity + Vector2.up * bounceHeight;
 
         }
+
+        // grabbing from bottom
+        if ((rb.velocity.y <= 0) && (heightDiff >= 0.2f))
+        {
+            UpdateTeam(collidingPlayer.teamAlignment);
+            collidingPlayer.Grab(gameObject);
+        }
     }
 
     void UpdateTeam(int team)
