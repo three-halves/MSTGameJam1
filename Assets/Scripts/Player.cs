@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
         Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
 
         otherRb.isKinematic = false;
-        otherRb.velocity = new Vector2(rb.velocity.x * 2f, rb.velocity.y * 2f + 5f);
+        otherRb.velocity = new Vector2(rb.velocity.x * 1f, rb.velocity.y * 2f + 5f);
         holding = null;
 
     }

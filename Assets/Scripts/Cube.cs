@@ -9,10 +9,15 @@ public class Cube : MonoBehaviour
     [SerializeField] SpriteRenderer sr;
     [SerializeField] private Color[] teamColors;
 
+    private Rigidbody2D rb;
+    // player who last collided with this cube
+    private Player collidingPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        UpdateColor();
+        UpdateTeam(-1);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -20,24 +25,44 @@ public class Cube : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() == null) return; 
 
         Debug.Log("player cube collide");
-        Player player = collision.gameObject.GetComponent<Player>();
+        collidingPlayer = collision.gameObject.GetComponent<Player>();
 
         // claim cube if unaligned
         if (teamAlignment == -1)
         {
-            teamAlignment = player.teamAlignment;
-            UpdateColor();
+            UpdateTeam(collidingPlayer.teamAlignment);
         }
 
-        // pick up cube
-        if (teamAlignment == player.teamAlignment)
+        // pick up cube if correct alignment
+        if (teamAlignment == collidingPlayer.teamAlignment)
         {
-            player.Grab(gameObject);
+            collidingPlayer.Grab(gameObject);
+        }
+        // do enemy collision
+        else HandlePlayerCollision(collision);
+    }
+
+    void HandlePlayerCollision(Collision2D collision)
+    {
+        Bounds cubeBounds = GetComponent<BoxCollider2D>().bounds;
+        Bounds playerBounds = collision.collider.bounds;
+
+        // height difference between bottom of player and top of cube
+        // should be negative when inside cube. keep in mind this only runs on collision
+        float heightDiff = cubeBounds.max.y - playerBounds.min.y;
+
+        // jumping on cube
+        if (collision.rigidbody.velocity.y < 0 && heightDiff >= -2f)
+        {
+            rb.velocity = Vector2.zero;
+            UpdateTeam(collidingPlayer.teamAlignment);
+
         }
     }
 
-    void UpdateColor()
+    void UpdateTeam(int team)
     {
+        teamAlignment = team;
         sr.color = teamColors[teamAlignment+1];
     }
 }
