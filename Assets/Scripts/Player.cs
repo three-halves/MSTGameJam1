@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private KeyCode KJump;
     [SerializeField] private KeyCode KLeft;
     [SerializeField] private KeyCode KRight;
+    [SerializeField] private KeyCode KDown;
+    [SerializeField] private KeyCode KThrow;
 
     [SerializeField] private float jumpHeight;
     [SerializeField] private float jumpControl;
@@ -25,6 +27,9 @@ public class Player : MonoBehaviour
 
     private int axisX;
 
+    // used for cube holding logic
+    private GameObject holding;
+
     // used as temp variable to modify rb velocity
     private Vector2 vel;
 
@@ -36,6 +41,8 @@ public class Player : MonoBehaviour
     private bool jumpUnpressed;
     // time since jump was last input
     private float jumpTimer;
+    private bool downPressed;
+    private bool throwPressed;
 
     // unity layer for solid ground
     [SerializeField] public LayerMask groundLayer;
@@ -72,6 +79,12 @@ public class Player : MonoBehaviour
         }
 
         jumpTimer += Time.deltaTime;
+
+        downPressed = Input.GetKey(KDown);
+        throwPressed = Input.GetKey(KThrow);
+
+        // update position of held obj
+        if (holding) holding.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
     }
 
     // fixed update is called at a fixed interval given by simulation steps
@@ -112,7 +125,31 @@ public class Player : MonoBehaviour
         // apply vel to actual velocity of rigidbody
         rb.velocity = new Vector2(vel.x, vel.y);
 
+
+        // throw object
+        if (throwPressed && holding) Throw(holding);
+
     } // close FixedUpdate()
+
+    // called from a cube when collided with
+    public void Grab(GameObject other)
+    {
+        // early return if already grabbing something
+        if (holding != null) return;
+
+        holding = other;
+        other.GetComponent<Rigidbody2D>().isKinematic = true;
+        Debug.Log("Grabbed " + other);
+    }
+
+    public void Throw(GameObject other)
+    {
+        Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+        otherRb.isKinematic = false;
+        otherRb.velocity = new Vector2(rb.velocity.x * 2f, rb.velocity.y * 2f + 5f);
+        holding = null;
+
+    }
 
     public bool Grounded()
     {

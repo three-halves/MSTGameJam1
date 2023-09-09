@@ -18,7 +18,7 @@ public class Cube : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Player>() == null) return; 
-        
+
         Debug.Log("player cube collide");
         Player player = collision.gameObject.GetComponent<Player>();
 
@@ -27,6 +27,12 @@ public class Cube : MonoBehaviour
         {
             teamAlignment = player.teamAlignment;
             UpdateColor();
+        }
+
+        // pick up cube
+        if (teamAlignment == player.teamAlignment)
+        {
+            player.Grab(gameObject);
         }
     }
 
