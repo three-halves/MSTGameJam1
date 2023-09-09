@@ -142,6 +142,8 @@ public class Player : MonoBehaviour
         holding = other;
         otherRb.isKinematic = true;
         otherRb.velocity = Vector2.zero;
+        // negate velocity change from collision
+        rb.velocity = vel;
         Debug.Log("Grabbed " + other);
     }
 
