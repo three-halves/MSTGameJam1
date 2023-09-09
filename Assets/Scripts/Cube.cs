@@ -52,7 +52,7 @@ public class Cube : MonoBehaviour
         float heightDiff = cubeBounds.max.y - playerBounds.min.y;
 
         // jumping on cube
-        if (collision.rigidbody.velocity.y < 0 && heightDiff >= -2f)
+        if (collision.rigidbody.velocity.y >= 0 && heightDiff >= -3f)
         {
             rb.velocity = Vector2.zero;
             UpdateTeam(collidingPlayer.teamAlignment);
