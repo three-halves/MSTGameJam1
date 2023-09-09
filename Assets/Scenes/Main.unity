@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 9.25
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -549,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -9.25
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -723,6 +723,10 @@ PrefabInstance:
       value: MidWall
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -781,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473256617569509010, guid: cffb65817108efd4fa0a1a79724454f9, type: 3}
       propertyPath: KThrow
-      value: 101
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 1211702420734404450, guid: cffb65817108efd4fa0a1a79724454f9, type: 3}
       propertyPath: m_Name
