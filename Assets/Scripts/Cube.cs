@@ -9,6 +9,8 @@ public class Cube : MonoBehaviour
     [SerializeField] SpriteRenderer sr;
     [SerializeField] private Color[] teamColors;
 
+    [SerializeField] private float bounceHeight;
+
     private Rigidbody2D rb;
     // player who last collided with this cube
     private Player collidingPlayer;
@@ -48,14 +50,14 @@ public class Cube : MonoBehaviour
         Bounds playerBounds = collision.collider.bounds;
 
         // height difference between bottom of player and top of cube
-        // should be negative when inside cube. keep in mind this only runs on collision
-        float heightDiff = cubeBounds.max.y - playerBounds.min.y;
+        float heightDiff = (cubeBounds.center.y + cubeBounds.extents.y) - (playerBounds.center.y - playerBounds.extents.y);
 
         // jumping on cube
-        if (collision.rigidbody.velocity.y >= 0 && heightDiff >= -3f)
+        if ((collision.rigidbody.velocity.y <= 0) && (heightDiff <= 0.2f))
         {
             rb.velocity = Vector2.zero;
             UpdateTeam(collidingPlayer.teamAlignment);
+            collision.rigidbody.velocity = collision.rigidbody.velocity + Vector2.up * bounceHeight;
 
         }
     }
