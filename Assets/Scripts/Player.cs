@@ -102,7 +102,7 @@ public class Player : MonoBehaviour
     // process player input
     void FixedUpdate()
     {
-        if(teamAlignment == 0) Debug.Log(throwTimer);
+        // if(teamAlignment == 0) Debug.Log(throwTimer);
         // assign rigidbody velocity to new variable for easier modifying
         vel = rb.velocity;
 
@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
         otherRb.velocity = Vector2.zero;
         // negate velocity change from collision
         rb.velocity = vel;
-        Debug.Log("Grabbed " + other);
+        // Debug.Log("Grabbed " + other);
     }
 
     public void Throw(GameObject other)

@@ -26,7 +26,7 @@ public class Cube : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Player>() == null) return; 
 
-        Debug.Log("player cube collide");
+        // Debug.Log("player cube collide");
         collidingPlayer = collision.gameObject.GetComponent<Player>();
 
         // claim cube if unaligned
