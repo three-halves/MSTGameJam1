@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class NumberDisp : MonoBehaviour
 {
@@ -16,8 +17,8 @@ public class NumberDisp : MonoBehaviour
     public void Refresh()
     {
         if (StorageAsset.Instance == null) return;
-        Debug.Log("lololo");
-        sr.sprite = numberSprites[StorageAsset.Instance.lives[teamAlignment]];
+        Debug.Log("lololo " + teamAlignment);
+        sr.sprite = numberSprites[Math.Clamp(0, StorageAsset.Instance.lives[teamAlignment], 9)];
     }
 
 

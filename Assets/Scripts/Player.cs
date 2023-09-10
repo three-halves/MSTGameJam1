@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
     // used for cube holding logic
     [SerializeField] private GameObject cubePrefab;
     private GameObject holding;
+    
+    [SerializeField] private SummonDisp summonDisp;
 
     // used as temp variable to modify rb velocity
     private Vector2 vel;
@@ -141,6 +143,8 @@ public class Player : MonoBehaviour
             newCube.GetComponent<Cube>().teamAlignment = teamAlignment;
             Grab(newCube);
         }
+
+        summonDisp.Refresh(summonTimer / cubeSummonTime);
 
     } // close FixedUpdate()
 
