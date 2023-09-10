@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     // inputs gathered during Update() to be read in FixedUpdate()
     private bool jumpPressed;
-    private bool jumpUnpressed;
+    private bool jumpHeld;
     // time since jump was last input
     private float jumpTimer;
     private float throwTimer;
@@ -80,11 +80,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KThrow)) throwTimer = 0f;
 
-        if (Input.GetKeyUp(KJump))
-        {
-            jumpUnpressed = true;
-        }
-
         jumpTimer += Time.deltaTime;
         throwTimer += Time.deltaTime;
 
@@ -93,6 +88,7 @@ public class Player : MonoBehaviour
 
         downPressed = Input.GetKey(KDown);
         throwPressed = throwTimer <= 0.1f;
+        jumpHeld = Input.GetKey(KJump);
 
         // update position of held obj
         if (holding) holding.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
@@ -116,10 +112,9 @@ public class Player : MonoBehaviour
         }
 
         // jump control
-        if (jumpUnpressed)
+        if (!jumpHeld && vel.y > 0)
         {
-            jumpUnpressed = false;
-            if (vel.y > 0) vel.y *= jumpControl;
+            vel.y *= jumpControl;
         }
 
         // walking

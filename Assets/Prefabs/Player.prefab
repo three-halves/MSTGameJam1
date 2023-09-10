@@ -275,7 +275,7 @@ MonoBehaviour:
   KDown: 115
   KThrow: 113
   jumpHeight: 10
-  jumpControl: 0.4
+  jumpControl: 0.8
   walkAccel: 4
   fric: 0.85
   pSpeed: 7
