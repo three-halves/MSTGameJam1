@@ -5,8 +5,8 @@ using UnityEngine;
 public class Cube : MonoBehaviour
 {
     // 0 red, 1 blue, -1 neutral
-    [SerializeField] int teamAlignment = -1;
-    [SerializeField] SpriteRenderer sr;
+    [SerializeField] public int teamAlignment = -1;
+    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color[] teamColors;
 
     [SerializeField] private float bounceHeight;
@@ -18,7 +18,7 @@ public class Cube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateTeam(-1);
+        UpdateTeam(teamAlignment);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -69,7 +69,7 @@ public class Cube : MonoBehaviour
         }
     }
 
-    void UpdateTeam(int team)
+    public void UpdateTeam(int team)
     {
         teamAlignment = team;
         sr.color = teamColors[teamAlignment+1];

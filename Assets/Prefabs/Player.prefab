@@ -102,13 +102,17 @@ MonoBehaviour:
   KJump: 119
   KLeft: 97
   KRight: 100
+  KDown: 0
+  KThrow: 0
   jumpHeight: 10
   jumpControl: 0.4
   walkAccel: 4
   fric: 0.85
   pSpeed: 7
   jumpBufferTime: 0.25
-  facing: 1
+  teamAlignment: 0
+  cubeSummonTime: 0.8
+  cubePrefab: {fileID: 9111456415758521370, guid: bc7742341b40773449f761002eeabaa0, type: 3}
   rb: {fileID: 9117338060781374547}
   groundLayer:
     serializedVersion: 2

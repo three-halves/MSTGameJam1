@@ -22,12 +22,15 @@ public class Player : MonoBehaviour
     // 0 for red, 1 for blue
     [SerializeField] public int teamAlignment;
 
+    [SerializeField] public float cubeSummonTime;
+
     // -1 when left, 1 when right. never 0 or any "neutral" value
     private int facing = 1;
 
     private int axisX;
 
     // used for cube holding logic
+    [SerializeField] private GameObject cubePrefab;
     private GameObject holding;
 
     // used as temp variable to modify rb velocity
@@ -41,6 +44,8 @@ public class Player : MonoBehaviour
     private bool jumpUnpressed;
     // time since jump was last input
     private float jumpTimer;
+    private float throwTimer;
+    private float summonTimer;
     private bool downPressed;
     private bool throwPressed;
 
@@ -70,8 +75,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KJump))
         {
             jumpPressed = true;
-            jumpTimer = 0;
+            jumpTimer = 0f;
         }
+
+        if (Input.GetKeyDown(KThrow)) throwTimer = 0f;
 
         if (Input.GetKeyUp(KJump))
         {
@@ -79,9 +86,13 @@ public class Player : MonoBehaviour
         }
 
         jumpTimer += Time.deltaTime;
+        throwTimer += Time.deltaTime;
+
+        if (holding == null && Input.GetKey(KThrow)) summonTimer += Time.deltaTime;
+        else summonTimer = 0f;
 
         downPressed = Input.GetKey(KDown);
-        throwPressed = Input.GetKey(KThrow);
+        throwPressed = throwTimer <= 0.1f;
 
         // update position of held obj
         if (holding) holding.transform.position = new Vector2(transform.position.x, transform.position.y + 1.5f);
@@ -91,7 +102,7 @@ public class Player : MonoBehaviour
     // process player input
     void FixedUpdate()
     {
-        // Debug.Log(Time.deltaTime);
+        if(teamAlignment == 0) Debug.Log(throwTimer);
         // assign rigidbody velocity to new variable for easier modifying
         vel = rb.velocity;
 
@@ -125,9 +136,16 @@ public class Player : MonoBehaviour
         // apply vel to actual velocity of rigidbody
         rb.velocity = new Vector2(vel.x, vel.y);
 
-
         // throw object
         if (throwPressed && holding) Throw(holding);
+
+        // summon cube if button is held long enough
+        if (summonTimer >= cubeSummonTime)
+        {
+            GameObject newCube = Instantiate(cubePrefab);
+            newCube.GetComponent<Cube>().teamAlignment = teamAlignment;
+            Grab(newCube);
+        }
 
     } // close FixedUpdate()
 
