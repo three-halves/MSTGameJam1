@@ -6,6 +6,9 @@ public class ScoreZone : MonoBehaviour
 {
     // 0 red, 1 blue
     [SerializeField] public int teamAlignment;
+
+    // the number disp object this score zone effects
+    [SerializeField] NumberDisp scoreDisp;
     
     // Start is called before the first frame update
     void Start()
@@ -21,8 +24,6 @@ public class ScoreZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Score zone collision of team " + teamAlignment);
-
         if (other.gameObject.GetComponent<Player>() != null) StartCoroutine(HandlePlayerTrigger(other));
         if (other.gameObject.GetComponent<Cube>() != null) HandleCubeTrigger(other);
     }
@@ -37,6 +38,7 @@ public class ScoreZone : MonoBehaviour
 
     private void HandleCubeTrigger(Collider2D other)
     {
-
+        Debug.Log("Cube score");
+        scoreDisp.Refresh();
     }
 }

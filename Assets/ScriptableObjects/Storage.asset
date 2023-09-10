@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bf6de30075d8f4e8eaeb64986259d8, type: 3}
   m_Name: Storage
   m_EditorClassIdentifier: 
+  startingLifeCount: 5
+  lives: 0500000005000000

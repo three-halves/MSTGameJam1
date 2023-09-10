@@ -11,7 +11,12 @@ public class StorageAsset : ScriptableObject
     // set instance so asset can be statically referenced
     void OnEnable()
     {
+        Debug.Log("Storage Instance Enabled");
         Instance = this;
     }
+
+    // lives of red and blue player during match (index 0 and 1)
+    [SerializeField] public int startingLifeCount = 5;
+    public int[] lives = new int[] {5,5};
 
 }
