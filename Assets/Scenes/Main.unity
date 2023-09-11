@@ -134,6 +134,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90d115f7bcd1ae4894330e874b7eefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &374018790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8257413627125621625, guid: 687ef3edb09b59b439665524b0db65f4, type: 3}
+  m_PrefabInstance: {fileID: 7690572001185138365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &517455108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8257413627125621625, guid: 687ef3edb09b59b439665524b0db65f4, type: 3}
+  m_PrefabInstance: {fileID: 685085511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,9 +426,17 @@ PrefabInstance:
       propertyPath: teamAlignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4416899602508850467, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523733037524216938, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4523733037524216938, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4523733037524216938, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -635,6 +653,9 @@ MonoBehaviour:
   scoreDisps:
   - {fileID: 82000983}
   - {fileID: 1264137967}
+  teamPlatforms:
+  - {fileID: 374018790}
+  - {fileID: 517455108}
 --- !u!4 &1513856679
 Transform:
   m_ObjectHideFlags: 0
@@ -788,9 +809,17 @@ PrefabInstance:
       propertyPath: scoreDisp
       value: 
       objectReference: {fileID: 82000983}
+    - target: {fileID: 4416899602508850467, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
+      propertyPath: m_SortingOrder
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523733037524216938, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4523733037524216938, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4523733037524216938, guid: 1ed770c2d19f37442be219fb88fad6f2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -863,7 +892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 11
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5705210283208501629, guid: 601cbac28a6866748aa710adc7074e7c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,6 +12,9 @@ public class MatchManager : MonoBehaviour
 
     [SerializeField] NumberDisp[] scoreDisps;
 
+    // index based on team alignment, used when one side loses
+    [SerializeField] public GameObject[] teamPlatforms;
+
     // match set up
     void Start()
     {

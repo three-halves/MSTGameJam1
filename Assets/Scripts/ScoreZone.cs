@@ -34,9 +34,20 @@ public class ScoreZone : MonoBehaviour
     private IEnumerator HandlePlayerTrigger(Collider2D other)
     {
         yield return new WaitForSeconds(1f);
-        Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
-        otherRb.velocity = Vector2.zero;
-        other.gameObject.transform.position = new Vector2(4f * (teamAlignment * 2 - 1), 6f);
+
+        // respawn player
+        if (MatchManager.Instance.lives[teamAlignment] > 0)
+        {
+            Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+            otherRb.velocity = Vector2.zero;
+            other.gameObject.transform.position = new Vector2(4f * (teamAlignment * 2 - 1), 6f);
+        }
+        // end game
+        else
+        {
+            
+        }
+
     }
 
     private void HandleCubeTrigger(Collider2D other)

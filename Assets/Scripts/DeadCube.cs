@@ -18,5 +18,11 @@ public class DeadCube : MonoBehaviour
         MatchManager.Instance.lives[teamAlignment] -= 1;
         accounted = true;
         scoreDisp.Refresh();
+
+        // this player has lost
+        if (MatchManager.Instance.lives[teamAlignment] <= 0)
+        {
+            MatchManager.Instance.teamPlatforms[teamAlignment].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        }
     }
 }
