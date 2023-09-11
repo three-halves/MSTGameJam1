@@ -13,6 +13,9 @@ public class ScoreZone : MonoBehaviour
     
     // dropped on score
     [SerializeField] GameObject deadCubePrefab;
+    
+    // used to start postgame
+    [SerializeField] PostGameWindow postGameWindow;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +48,7 @@ public class ScoreZone : MonoBehaviour
         // end game
         else
         {
-            
+            postGameWindow.postGameRoutine(1 - teamAlignment);
         }
 
     }

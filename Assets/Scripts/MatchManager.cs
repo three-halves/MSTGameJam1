@@ -25,6 +25,8 @@ public class MatchManager : MonoBehaviour
         {
             n.Refresh();
         }
+
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
