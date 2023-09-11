@@ -41,7 +41,7 @@ public class ScoreZone : MonoBehaviour
         Debug.Log("Cube score");
         if (teamAlignment != other.GetComponent<Cube>().teamAlignment)
         {
-            StorageAsset.Instance.lives[teamAlignment] -= 1;
+            MatchManager.Instance.lives[teamAlignment] -= 1;
         }
         scoreDisp.Refresh();
     }

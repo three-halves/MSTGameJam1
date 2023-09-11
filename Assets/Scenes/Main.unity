@@ -626,6 +626,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9786f68fdd12ab147b0f515251bc21ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingLifeCount: 5
+  lives: 
+  scoreDisps:
+  - {fileID: 82000983}
+  - {fileID: 1264137967}
 --- !u!4 &1513856679
 Transform:
   m_ObjectHideFlags: 0
@@ -757,6 +762,10 @@ PrefabInstance:
     - target: {fileID: 9111456415758521370, guid: bc7742341b40773449f761002eeabaa0, type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111456415758521370, guid: bc7742341b40773449f761002eeabaa0, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

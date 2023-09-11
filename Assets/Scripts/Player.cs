@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(vel.x, vel.y);
 
         // throw object
-        if (throwPressed && holding) Throw(holding);
+        if (throwPressed && holding) Throw(holding, Math.Min(rb.velocity.x * 1.5f, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
 
         // summon cube if button is held long enough
         if (summonTimer >= cubeSummonTime)
@@ -164,12 +164,12 @@ public class Player : MonoBehaviour
         // Debug.Log("Grabbed " + other);
     }
 
-    public void Throw(GameObject other)
+    public void Throw(GameObject other, float xspd, float yspd)
     {
         Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
 
         otherRb.isKinematic = false;
-        otherRb.velocity = new Vector2(Math.Min(rb.velocity.x * 1.5f, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
+        otherRb.velocity = new Vector2(xspd, yspd);
         holding = null;
 
     }
