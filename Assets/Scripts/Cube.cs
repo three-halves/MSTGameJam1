@@ -24,6 +24,7 @@ public class Cube : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.gameObject.GetComponent<Player>() == null) return; 
 
         // Debug.Log("player cube collide");
@@ -62,6 +63,7 @@ public class Cube : MonoBehaviour
         }
 
         // grabbing from bottom
+        // Debug.Log(rb != null);
         if ((rb.velocity.y < 0) && (heightDiff >= 0.2f))
         {
             UpdateTeam(collidingPlayer.teamAlignment);
@@ -73,5 +75,11 @@ public class Cube : MonoBehaviour
     {
         teamAlignment = team;
         sr.color = teamColors[teamAlignment+1];
+    }
+
+    public void RefreshCollision(Player other)
+    {
+        Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), gameObject.tag.Equals(other.noCollideTag));
+        Debug.Log("Collide check " + gameObject.tag.Equals(other.noCollideTag));
     }
 }

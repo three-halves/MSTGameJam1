@@ -38,7 +38,7 @@ public class ScoreZone : MonoBehaviour
 
     private void HandleCubeTrigger(Collider2D other)
     {
-        Debug.Log("Cube score");
+        // Debug.Log("Cube score");
         if (teamAlignment != other.GetComponent<Cube>().teamAlignment)
         {
             MatchManager.Instance.lives[teamAlignment] -= 1;

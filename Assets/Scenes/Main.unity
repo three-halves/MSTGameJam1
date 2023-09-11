@@ -585,6 +585,10 @@ PrefabInstance:
       value: 111
       objectReference: {fileID: 0}
     - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: noCollideTag
+      value: BlueNoCollide
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: teamAlignment
       value: 1
       objectReference: {fileID: 0}
@@ -961,6 +965,10 @@ PrefabInstance:
     - target: {fileID: 1508061571383597927, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: noCollideTag
+      value: RedNoCollide
       objectReference: {fileID: 0}
     - target: {fileID: 8346623703858789101, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: m_Name

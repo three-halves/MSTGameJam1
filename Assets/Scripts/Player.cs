@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     // 0 for red, 1 for blue
     [SerializeField] public int teamAlignment;
+    [SerializeField] public string noCollideTag;
 
     [SerializeField] public float cubeSummonTime;
 
@@ -130,11 +131,16 @@ public class Player : MonoBehaviour
         // mininum horizontal speed to avoid tiny floats
         if (Math.Abs(vel.x) < 0.01) vel.x = 0;
 
-        // apply vel to actual velocity of rigidbody
-        rb.velocity = new Vector2(vel.x, vel.y);
+
 
         // throw object
         if (throwPressed && holding) Throw(holding, Math.Min(rb.velocity.x * 1.5f, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
+
+        if (downPressed && holding)
+        {
+            Throw(holding,  13f * (teamAlignment * 2 - 1) * -1, -10f);
+            if (!Grounded()) vel.y = jumpHeight * 0.75f;
+        }
 
         // summon cube if button is held long enough
         if (summonTimer >= cubeSummonTime)
@@ -145,6 +151,9 @@ public class Player : MonoBehaviour
         }
 
         summonDisp.Refresh(summonTimer / cubeSummonTime);
+
+        // apply vel to actual velocity of rigidbody
+        rb.velocity = new Vector2(vel.x, vel.y);
 
     } // close FixedUpdate()
 
@@ -168,10 +177,20 @@ public class Player : MonoBehaviour
     {
         Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
 
+        other.tag = noCollideTag;
+        other.gameObject.GetComponent<Cube>().RefreshCollision(this);
         otherRb.isKinematic = false;
         otherRb.velocity = new Vector2(xspd, yspd);
         holding = null;
+        StartCoroutine(resetTag(other));
 
+    }
+
+    private IEnumerator resetTag(GameObject other)
+    {
+        yield return new WaitForSeconds(0.1f);
+        other.tag = "Untagged";
+        other.gameObject.GetComponent<Cube>().RefreshCollision(this);
     }
 
     public bool Grounded()
