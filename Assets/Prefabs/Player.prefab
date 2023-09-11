@@ -301,7 +301,10 @@ MonoBehaviour:
   rb: {fileID: 4669225286154726832}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
+  cubeLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &4669225286154726832
 Rigidbody2D:
   serializedVersion: 4
