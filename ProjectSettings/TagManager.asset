@@ -16,7 +16,7 @@ TagManager:
   - PlayerCollideOnly
   - Players
   - Cube
-  - 
+  - DeadCube
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Behind
+    uniqueID: 2205961851
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

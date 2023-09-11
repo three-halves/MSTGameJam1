@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teamAlignment: 0
+  scoreDisp: {fileID: 0}
+  deadCubePrefab: {fileID: 3277114887768980179, guid: 6ffbe207ef882b042aa43b6504d00445, type: 3}
 --- !u!61 &2531276865482637792
 BoxCollider2D:
   m_ObjectHideFlags: 0

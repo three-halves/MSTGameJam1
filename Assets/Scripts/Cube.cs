@@ -11,7 +11,7 @@ public class Cube : MonoBehaviour
 
     [SerializeField] private float bounceHeight;
 
-    private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D rb;
     // player who last collided with this cube
     private Player collidingPlayer;
 
@@ -19,7 +19,7 @@ public class Cube : MonoBehaviour
     void Start()
     {
         UpdateTeam(teamAlignment);
-        rb = GetComponent<Rigidbody2D>();
+        // rb = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

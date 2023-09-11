@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class ScoreZone : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class ScoreZone : MonoBehaviour
     // the number disp object this score zone effects
     [SerializeField] NumberDisp scoreDisp;
     
+    // dropped on score
+    [SerializeField] GameObject deadCubePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +44,12 @@ public class ScoreZone : MonoBehaviour
         // Debug.Log("Cube score");
         if (teamAlignment != other.GetComponent<Cube>().teamAlignment)
         {
-            MatchManager.Instance.lives[teamAlignment] -= 1;
+            // spawn dead cube
+            GameObject newDC = Instantiate(deadCubePrefab);
+            newDC.transform.position = new Vector2(Random.Range(0.5f,6f) * (teamAlignment * 2 - 1), 6.5f);
+            newDC.GetComponent<DeadCube>().teamAlignment = teamAlignment;
+            newDC.GetComponent<DeadCube>().scoreDisp = scoreDisp;
         }
-        scoreDisp.Refresh();
+        // scoreDisp.Refresh();
     }
 }
