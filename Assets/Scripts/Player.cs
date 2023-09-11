@@ -138,8 +138,8 @@ public class Player : MonoBehaviour
 
         if (downPressed && holding)
         {
-            Throw(holding,  13f * (teamAlignment * 2 - 1) * -1, -10f);
-            if (!Grounded()) vel.y = jumpHeight * 0.75f;
+            Throw(holding,  13f * (teamAlignment * 2 - 1) * -1, -10f, 0.2f);
+            if (!Grounded()) vel.y = jumpHeight * 1f;
         }
 
         // summon cube if button is held long enough
@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
         // Debug.Log("Grabbed " + other);
     }
 
-    public void Throw(GameObject other, float xspd, float yspd)
+    public void Throw(GameObject other, float xspd, float yspd, float collisionTimer = 0.1f)
     {
         Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
 
@@ -182,13 +182,13 @@ public class Player : MonoBehaviour
         otherRb.isKinematic = false;
         otherRb.velocity = new Vector2(xspd, yspd);
         holding = null;
-        StartCoroutine(resetTag(other));
+        StartCoroutine(resetTag(other, collisionTimer));
 
     }
 
-    private IEnumerator resetTag(GameObject other)
+    private IEnumerator resetTag(GameObject other, float collisionTimer)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(collisionTimer);
         other.tag = "Untagged";
         other.gameObject.GetComponent<Cube>().RefreshCollision(this);
     }

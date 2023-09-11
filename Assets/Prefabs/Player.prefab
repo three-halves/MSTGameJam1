@@ -292,9 +292,10 @@ MonoBehaviour:
   jumpControl: 0.8
   walkAccel: 4
   fric: 0.85
-  pSpeed: 7
+  pSpeed: 6.5
   jumpBufferTime: 0.25
   teamAlignment: 0
+  noCollideTag: 
   cubeSummonTime: 0.8
   cubePrefab: {fileID: 9111456415758521370, guid: bc7742341b40773449f761002eeabaa0, type: 3}
   summonDisp: {fileID: 244279742687073486}
@@ -302,9 +303,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 264
-  cubeLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!50 &4669225286154726832
 Rigidbody2D:
   serializedVersion: 4
