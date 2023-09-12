@@ -1055,6 +1055,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1142379012}
     m_Modifications:
+    - target: {fileID: 1053195570222884019, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d5adb5a48827294d8675eed8d57b13d, type: 3}
     - target: {fileID: 1272702421182245419, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
       propertyPath: m_Name
       value: MenuButton
@@ -1206,6 +1210,10 @@ PrefabInstance:
     - target: {fileID: 7346115443573554141, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457293101585508827, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8740076702635462576, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
       propertyPath: m_text
@@ -1533,6 +1541,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1142379012}
     m_Modifications:
+    - target: {fileID: 1053195570222884019, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd5660631cea7e34eb188c5b2346be99, type: 3}
     - target: {fileID: 1272702421182245419, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
       propertyPath: m_Name
       value: RematchButton
@@ -1648,6 +1660,10 @@ PrefabInstance:
     - target: {fileID: 7346115443573554141, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457293101585508827, guid: 87fc5ba7c7b161d4695acbea8a700a2a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 65
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
