@@ -64,7 +64,7 @@ public class Cube : MonoBehaviour
 
         // grabbing from bottom
         // Debug.Log(rb != null);
-        if ((rb.velocity.y < 0) && (heightDiff >= 0.2f))
+        if ((rb.velocity.y < 0) && (heightDiff >= 0.2f) && collidingPlayer.holding == null)
         {
             UpdateTeam(collidingPlayer.teamAlignment);
             collidingPlayer.Grab(gameObject);

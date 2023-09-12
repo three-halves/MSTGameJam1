@@ -48,6 +48,7 @@ public class ScoreZone : MonoBehaviour
         // end game
         else
         {
+            yield return new WaitForSeconds(1f);
             postGameWindow.postGameRoutine(1 - teamAlignment);
         }
 

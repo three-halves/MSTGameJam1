@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     // used for cube holding logic
     [SerializeField] private GameObject cubePrefab;
-    private GameObject holding;
+    public GameObject holding;
     
     [SerializeField] private SummonDisp summonDisp;
 
