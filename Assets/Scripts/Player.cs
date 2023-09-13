@@ -209,8 +209,9 @@ public class Player : MonoBehaviour
 
     public bool Grounded()
     {
-        return Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
+        if (hit == null || hit.collider == null) return false;
+        if (hit.collider.gameObject.GetComponent<Cube>() == null) return true;
+        return (hit.collider.gameObject.GetComponent<Cube>().teamAlignment == teamAlignment);
     }
 }
-
-
