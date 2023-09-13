@@ -7,8 +7,10 @@ public class MatchManager : MonoBehaviour
 
     public static MatchManager Instance;
 
-    [SerializeField] private int startingLifeCount = 5;
+    private int startingLifeCount;
     public int[] lives;
+
+    private int maxCubes;
 
     [SerializeField] NumberDisp[] scoreDisps;
 
@@ -19,6 +21,8 @@ public class MatchManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        startingLifeCount = PlayerPrefs.GetInt("StartingLives", 5);
+        maxCubes = PlayerPrefs.GetInt("MaxCubes", 4);
         lives = new int[]{startingLifeCount,startingLifeCount};
 
         foreach(NumberDisp n in scoreDisps)
