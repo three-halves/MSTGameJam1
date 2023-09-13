@@ -65,7 +65,7 @@ public class ScoreZone : MonoBehaviour
             newDC.GetComponent<DeadCube>().teamAlignment = teamAlignment;
             newDC.GetComponent<DeadCube>().scoreDisp = scoreDisp;
 
-            StartCoroutine(other.GetComponent<Cube>().DestroyWithDelay(0.1f));
+            // if (other.GetComponent<Cube>() != null) StartCoroutine(other.GetComponent<Cube>().DestroyWithDelay(0.1f));
         }
         // scoreDisp.Refresh();
     }

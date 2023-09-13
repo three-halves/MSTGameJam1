@@ -7,7 +7,7 @@ public class Cube : MonoBehaviour
     // 0 red, 1 blue, -1 neutral
     [SerializeField] public int teamAlignment = -1;
     [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Color[] teamColors;
+    [SerializeField] private Sprite[] teamSprites;
 
     [SerializeField] private float bounceHeight;
 
@@ -76,7 +76,7 @@ public class Cube : MonoBehaviour
     {
         if (teamAlignment != -1 && MatchManager.Instance.players[teamAlignment].ownedCubes.Contains(gameObject)) MatchManager.Instance.players[teamAlignment].ownedCubes.Remove(gameObject);
         teamAlignment = team;
-        sr.color = teamColors[teamAlignment+1];
+        sr.sprite = teamSprites[teamAlignment+1];
         if (team != -1) MatchManager.Instance.players[teamAlignment].AddToOwned(gameObject);
     }
 
