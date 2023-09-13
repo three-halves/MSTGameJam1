@@ -860,6 +860,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+--- !u!114 &1304537006 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+  m_PrefabInstance: {fileID: 1304537005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78f16abb204f2649b490120ff838fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1440990872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,11 +1276,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9786f68fdd12ab147b0f515251bc21ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLifeCount: 5
   lives: 
+  maxCubes: 0
   scoreDisps:
   - {fileID: 82000983}
   - {fileID: 1264137967}
+  players:
+  - {fileID: 7666816848304412504}
+  - {fileID: 1304537006}
   teamPlatforms:
   - {fileID: 374018790}
   - {fileID: 517455108}
@@ -1954,6 +1968,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+--- !u!114 &7666816848304412504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+  m_PrefabInstance: {fileID: 7666816848304412503}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78f16abb204f2649b490120ff838fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7690572001185138365
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -58,6 +58,7 @@ public class Cube : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             UpdateTeam(collidingPlayer.teamAlignment);
+    
             collision.rigidbody.velocity = collision.rigidbody.velocity + Vector2.up * bounceHeight;
 
         }
@@ -73,8 +74,10 @@ public class Cube : MonoBehaviour
 
     public void UpdateTeam(int team)
     {
+        if (teamAlignment != -1 && MatchManager.Instance.players[teamAlignment].ownedCubes.Contains(gameObject)) MatchManager.Instance.players[teamAlignment].ownedCubes.Remove(gameObject);
         teamAlignment = team;
         sr.color = teamColors[teamAlignment+1];
+        if (team != -1) MatchManager.Instance.players[teamAlignment].AddToOwned(gameObject);
     }
 
     public void RefreshCollision(Player other)
@@ -86,6 +89,8 @@ public class Cube : MonoBehaviour
     public IEnumerator DestroyWithDelay(float t)
     {
         yield return new WaitForSeconds(t);
+        MatchManager.Instance.players[teamAlignment].ownedCubes.Remove(gameObject);
+        Debug.Log("Sad :)");
         Destroy(gameObject);
     }
 }

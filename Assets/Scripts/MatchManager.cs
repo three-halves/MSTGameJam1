@@ -10,9 +10,10 @@ public class MatchManager : MonoBehaviour
     private int startingLifeCount;
     public int[] lives;
 
-    private int maxCubes;
+    public int maxCubes;
 
     [SerializeField] NumberDisp[] scoreDisps;
+    [SerializeField] public Player[] players;
 
     // index based on team alignment, used when one side loses
     [SerializeField] public GameObject[] teamPlatforms;

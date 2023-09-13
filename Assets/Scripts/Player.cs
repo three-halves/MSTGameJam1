@@ -36,6 +36,9 @@ public class Player : MonoBehaviour
     
     [SerializeField] private SummonDisp summonDisp;
 
+    // used to enforce max cubes per player.
+    [SerializeField] public List<GameObject> ownedCubes = new List<GameObject>();
+
     // used as temp variable to modify rb velocity
     private Vector2 vel;
 
@@ -183,6 +186,17 @@ public class Player : MonoBehaviour
         otherRb.velocity = new Vector2(xspd, yspd);
         holding = null;
         StartCoroutine(resetTag(other, collisionTimer));
+
+    }
+
+    public void AddToOwned(GameObject o)
+    {
+        ownedCubes.Add(o);
+        if (ownedCubes.Count > MatchManager.Instance.maxCubes)
+        {
+            Destroy(ownedCubes[0]);
+            ownedCubes.RemoveAt(0);
+        }
 
     }
 
