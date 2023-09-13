@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
 
 
         // throw object
-        if (throwPressed && holding) Throw(holding, Math.Min(rb.velocity.x * 1.5f, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
+        if (throwPressed && holding) Throw(holding, Math.Min(Math.Abs(rb.velocity.x * 1.5f) * (teamAlignment * 2 - 1) * -1, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
 
         if (downPressed && holding)
         {
