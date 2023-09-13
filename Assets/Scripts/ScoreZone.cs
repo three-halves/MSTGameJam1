@@ -64,6 +64,8 @@ public class ScoreZone : MonoBehaviour
             newDC.transform.position = new Vector2(Random.Range(0.5f,6f) * (teamAlignment * 2 - 1), 6.5f);
             newDC.GetComponent<DeadCube>().teamAlignment = teamAlignment;
             newDC.GetComponent<DeadCube>().scoreDisp = scoreDisp;
+
+            other.GetComponent<Cube>().DestroyWithDelay(0.5f);
         }
         // scoreDisp.Refresh();
     }
