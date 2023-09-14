@@ -12,6 +12,8 @@ public class MatchManager : MonoBehaviour
 
     public int maxCubes;
 
+    [SerializeField] private AudioClip bgm;
+
     [SerializeField] NumberDisp[] scoreDisps;
     [SerializeField] public Player[] players;
 
@@ -32,6 +34,9 @@ public class MatchManager : MonoBehaviour
         }
 
         Time.timeScale = 1f;
+
+        BGMSource.Instance.GetComponent<AudioSource>().clip = bgm;
+        BGMSource.Instance.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame
