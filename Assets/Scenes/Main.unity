@@ -845,11 +845,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4038975354952006143, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: m_Color.g
-      value: 0.32069558
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4038975354952006143, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: m_Color.r
-      value: 0.09019607
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720044894633357882, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720044894633357882, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: KDown
@@ -879,6 +887,18 @@ PrefabInstance:
       propertyPath: teamAlignment
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 46ddb96c01d75b94fae4eb4052e241e0, type: 3}
+    - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 587347e8a68923642a2d1c255b2483c6, type: 3}
+    - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 660c7d4d5fe9c244791a723f26f3d5f8, type: 3}
     - target: {fileID: 8346623703858789101, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1994,6 +2014,38 @@ PrefabInstance:
     - target: {fileID: 1508061571383597927, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038975354952006143, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1eaaca468bf0e0848803f22f1aac4e55, type: 3}
+    - target: {fileID: 4038975354952006143, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038975354952006143, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038975354952006143, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720044894633357882, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720044894633357882, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720044894633357882, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5720044894633357882, guid: 465bbca3173aa644ea135a245940876e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7338828089864882492, guid: 465bbca3173aa644ea135a245940876e, type: 3}
       propertyPath: noCollideTag

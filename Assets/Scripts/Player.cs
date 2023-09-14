@@ -60,6 +60,10 @@ public class Player : MonoBehaviour
     // unity layer for one-way platforms
     // [SerializeField] public LayerMask platformLayer;
 
+    [SerializeField] SpriteRenderer sr;
+    // animation frames IN ORDER stand hold throw
+    [SerializeField] Sprite[] sprites;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +71,8 @@ public class Player : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
 
         rb.gravityScale = 3;
+
+        sr.sprite = sprites[0];
     }
 
     // Update is called once per frame
@@ -174,11 +180,15 @@ public class Player : MonoBehaviour
         // negate velocity change from collision
         rb.velocity = vel;
         // Debug.Log("Grabbed " + other);
+        sr.sprite = sprites[1];
     }
 
     public void Throw(GameObject other, float xspd, float yspd, float collisionTimer = 0.1f)
     {
         Rigidbody2D otherRb = other.GetComponent<Rigidbody2D>();
+
+        sr.sprite = sprites[2];
+        StartCoroutine(setSpriteWithDelay(0,0.25f));
 
         other.tag = noCollideTag;
         other.gameObject.GetComponent<Cube>().RefreshCollision(this);
@@ -198,6 +208,12 @@ public class Player : MonoBehaviour
             ownedCubes.RemoveAt(0);
         }
 
+    }
+
+    private IEnumerator setSpriteWithDelay(int i, float t)
+    {
+        yield return new WaitForSeconds(t);
+        sr.sprite = sprites[i];
     }
 
     private IEnumerator resetTag(GameObject other, float collisionTimer)

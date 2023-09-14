@@ -298,11 +298,18 @@ MonoBehaviour:
   noCollideTag: 
   cubeSummonTime: 0.8
   cubePrefab: {fileID: 9111456415758521370, guid: bc7742341b40773449f761002eeabaa0, type: 3}
+  holding: {fileID: 0}
   summonDisp: {fileID: 244279742687073486}
+  ownedCubes: []
   rb: {fileID: 4669225286154726832}
   groundLayer:
     serializedVersion: 2
     m_Bits: 264
+  sr: {fileID: 4038975354952006143}
+  sprites:
+  - {fileID: 21300000, guid: 1eaaca468bf0e0848803f22f1aac4e55, type: 3}
+  - {fileID: 21300000, guid: faac4591ee3d40e439ce2487afbdf64a, type: 3}
+  - {fileID: 21300000, guid: ddc4aaaac7a83b641aee3dbd10f09e80, type: 3}
 --- !u!50 &4669225286154726832
 Rigidbody2D:
   serializedVersion: 4
