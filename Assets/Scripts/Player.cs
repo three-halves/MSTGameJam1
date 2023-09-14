@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private KeyCode KRight;
     [SerializeField] private KeyCode KDown;
     [SerializeField] private KeyCode KThrow;
+    [SerializeField] private KeyCode KAltThrow;
 
     [SerializeField] private float jumpHeight;
     [SerializeField] private float jumpControl;
@@ -90,12 +91,12 @@ public class Player : MonoBehaviour
             jumpTimer = 0f;
         }
 
-        if (Input.GetKeyDown(KThrow)) throwTimer = 0f;
+        if (Input.GetKeyDown(KThrow) || Input.GetKeyDown(KAltThrow)) throwTimer = 0f;
 
         jumpTimer += Time.deltaTime;
         throwTimer += Time.deltaTime;
 
-        if (holding == null && Input.GetKey(KThrow)) summonTimer += Time.deltaTime;
+        if (holding == null && (Input.GetKey(KThrow) || Input.GetKey(KAltThrow))) summonTimer += Time.deltaTime;
         else summonTimer = 0f;
 
         downPressed = Input.GetKey(KDown);
