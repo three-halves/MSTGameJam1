@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     [SerializeField] public string noCollideTag;
 
     [SerializeField] public float cubeSummonTime;
+    // multiplier for how long the next summon will take. reset each summon
+    private float nextSummonMultiplier = 1f;
 
     // -1 when left, 1 when right. never 0 or any "neutral" value
     private int facing = 1;
@@ -144,23 +146,24 @@ public class Player : MonoBehaviour
 
 
         // throw object
-        if (throwPressed && holding) Throw(holding, Math.Min(Math.Abs(rb.velocity.x * 1.5f) * (teamAlignment * 2 - 1) * -1, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
+        if (throwPressed && holding) Throw(holding, Math.Min(Math.Abs(rb.velocity.x * 1.4f) * (teamAlignment * 2 - 1) * -1, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
 
         if (downPressed && holding)
         {
             Throw(holding,  13f * (teamAlignment * 2 - 1) * -1, -10f, 0.2f);
             if (!Grounded()) vel.y = jumpHeight * 1f;
+            nextSummonMultiplier = 1.5f;
         }
 
         // summon cube if button is held long enough
-        if (summonTimer >= cubeSummonTime)
+        summonDisp.Refresh(summonTimer / (cubeSummonTime * nextSummonMultiplier));
+        if (summonTimer >= cubeSummonTime * nextSummonMultiplier)
         {
             GameObject newCube = Instantiate(cubePrefab);
             newCube.GetComponent<Cube>().teamAlignment = teamAlignment;
             Grab(newCube);
+            nextSummonMultiplier = 1f;
         }
-
-        summonDisp.Refresh(summonTimer / cubeSummonTime);
 
         // apply vel to actual velocity of rigidbody
         rb.velocity = new Vector2(vel.x, vel.y);
