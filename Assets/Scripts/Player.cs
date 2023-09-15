@@ -146,13 +146,19 @@ public class Player : MonoBehaviour
 
 
         // throw object
-        if (throwPressed && holding) Throw(holding, Math.Min(Math.Abs(rb.velocity.x * 1.4f) * (teamAlignment * 2 - 1) * -1, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
-
+        if (throwPressed && holding)
+        {
+            holding.GetComponent<Cube>().source.PlayOneShot(holding.GetComponent<Cube>().throwSFX);
+            Throw(holding, Math.Min(Math.Abs(rb.velocity.x * 1.4f) * (teamAlignment * 2 - 1) * -1, 20f), Math.Min(rb.velocity.y * 2f + 5f, 15f));
+        }
         if (downPressed && holding)
         {
+            holding.GetComponent<Cube>().source.PlayOneShot(holding.GetComponent<Cube>().spikeSFX);
             Throw(holding,  13f * (teamAlignment * 2 - 1) * -1, -10f, 0.2f);
             if (!Grounded()) vel.y = jumpHeight * 1f;
             nextSummonMultiplier = 1.5f;
+           
+            
         }
 
         // summon cube if button is held long enough
@@ -162,6 +168,7 @@ public class Player : MonoBehaviour
             GameObject newCube = Instantiate(cubePrefab);
             newCube.GetComponent<Cube>().teamAlignment = teamAlignment;
             Grab(newCube);
+            holding.GetComponent<Cube>().source.PlayOneShot(holding.GetComponent<Cube>().summonSFX);
             nextSummonMultiplier = 1f;
         }
 
@@ -185,6 +192,7 @@ public class Player : MonoBehaviour
         rb.velocity = vel;
         // Debug.Log("Grabbed " + other);
         sr.sprite = sprites[1];
+        holding.GetComponent<Cube>().source.PlayOneShot(holding.GetComponent<Cube>().grabSFX);
     }
 
     public void Throw(GameObject other, float xspd, float yspd, float collisionTimer = 0.1f)

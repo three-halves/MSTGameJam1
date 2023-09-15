@@ -28,5 +28,7 @@ public class PostGameWindow : MonoBehaviour
         playerLogoImage.sprite = playerLogoSprites[winningTeam];
         postGameAnimator.SetTrigger("Appear");
         EventSystem.current.SetSelectedGameObject(retryButton);
+        BGMSource.Instance.GetComponent<AudioSource>().Pause();
+        GetComponent<AudioSource>().Play();
     }
 }

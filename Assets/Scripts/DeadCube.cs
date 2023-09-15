@@ -18,6 +18,8 @@ public class DeadCube : MonoBehaviour
         MatchManager.Instance.lives[teamAlignment] -= 1;
         accounted = true;
         scoreDisp.Refresh();
+        GetComponent<AudioSource>().panStereo = (teamAlignment * 2 - 1) * 0.5f;
+        GetComponent<AudioSource>().Play();
 
         // this player has lost
         if (MatchManager.Instance.lives[teamAlignment] <= 0)

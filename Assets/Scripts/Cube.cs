@@ -12,6 +12,13 @@ public class Cube : MonoBehaviour
     [SerializeField] private float bounceHeight;
 
     [SerializeField] private Rigidbody2D rb;
+
+    [SerializeField] public AudioSource source;
+    [SerializeField] public AudioClip spikeSFX;
+    [SerializeField] public AudioClip grabSFX;
+    [SerializeField] public AudioClip throwSFX;
+    [SerializeField] public AudioClip summonSFX;
+    [SerializeField] public AudioClip jumpedSFX;
     // player who last collided with this cube
     private Player collidingPlayer;
 
@@ -58,6 +65,7 @@ public class Cube : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             UpdateTeam(collidingPlayer.teamAlignment);
+            source.PlayOneShot(jumpedSFX);
     
             collision.rigidbody.velocity = collision.rigidbody.velocity + Vector2.up * bounceHeight;
 
