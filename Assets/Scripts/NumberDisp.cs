@@ -17,7 +17,7 @@ public class NumberDisp : MonoBehaviour
     public void Refresh()
     {
         if (MatchManager.Instance == null) return;
-        Debug.Log("lololo " + teamAlignment);
+        // Debug.Log("lololo " + teamAlignment);
         sr.sprite = numberSprites[Math.Clamp(0, MatchManager.Instance.lives[teamAlignment], 9)];
     }
 

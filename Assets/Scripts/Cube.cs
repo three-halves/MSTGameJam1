@@ -83,14 +83,14 @@ public class Cube : MonoBehaviour
     public void RefreshCollision(Player other)
     {
         Physics2D.IgnoreCollision(other.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), gameObject.tag.Equals(other.noCollideTag));
-        Debug.Log("Collide check " + gameObject.tag.Equals(other.noCollideTag));
+        // Debug.Log("Collide check " + gameObject.tag.Equals(other.noCollideTag));
     }
 
     public IEnumerator DestroyWithDelay(float t)
     {
         yield return new WaitForSeconds(t);
         MatchManager.Instance.players[teamAlignment].ownedCubes.Remove(gameObject);
-        Debug.Log("Sad :)");
+        // Debug.Log("Sad :)");
         Destroy(gameObject);
     }
 }

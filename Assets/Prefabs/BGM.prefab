@@ -141,3 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e269e54c2add25341a37afec39fe51a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: {fileID: 333258078755177386}
+  menuMusic: {fileID: 8300000, guid: a9e7eb856d48a034f982f10a36551ee8, type: 3}
+  battleMusic: {fileID: 8300000, guid: 32c719f697f7c7546b162d8f28024aa1, type: 3}
